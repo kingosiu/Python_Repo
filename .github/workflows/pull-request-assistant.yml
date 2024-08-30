@@ -27,7 +27,7 @@ jobs:
       - name: Run assistant  
         uses: maximbircu/pull-request-assistant@latest  
         with:  
-          config-path: '.pull-request-assistant.yml'  # Update with your config path  
+          config-path: '.github/workflows/pull-request-assistant.yml'  # Update with your config path  
         env:  
           GITHUB_TOKEN: "${{ secrets.ACCESS_TOKEN }}"
 
