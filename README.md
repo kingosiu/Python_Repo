@@ -1,3 +1,3 @@
 # Python_Repo
 
-This is an example for the pull request automation with GenAI with Maverick
+This is an example for the pull request automation with GenAI
