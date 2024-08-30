@@ -1,0 +1,25 @@
+name: Friday  
+
+on:  
+  issue_comment:  
+    types: [ created ]  
+  pull_request_review:  
+    types:  
+      - submitted  
+  check_suite:  
+    types:  
+      - completed  
+
+jobs:  
+  friday:  
+    runs-on: ubuntu-latest  
+    env:  
+      GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}  
+    steps:  
+      - name: SCM  
+        uses: actions/checkout@v2  
+
+      - name: Run assistant  
+        uses: maximbircu/pull-request-assistant@1.0.0  
+        env:  
+          GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}"
