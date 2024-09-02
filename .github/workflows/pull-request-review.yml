@@ -17,8 +17,10 @@ jobs:
       with:
         python-version: '3.9'  # or any supported Python version you prefer
 
-    - name: Install Requirements
-      run: pip install genaiscript
+    - name: Install GenaIScript
+      run: |
+        python -m pip install --upgrade pip
+        pip install git+https://github.com/microsoft/genaiscript.git
 
     - name: Run GenaIScript PR Reviewer
       env:
