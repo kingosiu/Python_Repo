@@ -1,0 +1,26 @@
+name: Pull Request Review
+
+on: 
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  pr_review:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Setup Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.9'  # or any supported Python version you prefer
+
+    - name: Install Requirements
+      run: pip install genaiscript
+
+    - name: Run GenaIScript PR Reviewer
+      env:
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: genaiscript pr-review --repo_path=. --pr_number=${{ github.event.number }}
